@@ -1,1 +1,0 @@
-/Users/mvandepe/workspace/grpc/gRPC_vs_REST/application/configuration/application-quarkus/build/classes/java/main/be/hogent/nthiers/GreetingResource.class
