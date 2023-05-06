@@ -1,0 +1,27 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: server-service
+  namespace: thiersnicolas-dev
+  labels:
+    app: server-service
+    app.kubernetes.io/component: server-service
+    app.kubernetes.io/instance: server-service
+    app.kubernetes.io/name: server-service
+    app.kubernetes.io/part-of: server-service
+    app.openshift.io/runtime-version: 0.0.1-SNAPSHOT
+spec:
+  host: server-service-thiersnicolas-dev.apps.ocp4-bm.redhat.arrowlabs.be
+  to:
+    kind: Service
+    name: server-service
+    weight: 100
+  port:
+    targetPort: 8083-tcp
+  wildcardPolicy: None
+status:
+  ingress:
+    - host: server-service-thiersnicolas-dev.apps.ocp4-bm.redhat.arrowlabs.be
+      routerName: default
+      wildcardPolicy: None
+      routerCanonicalHostname: router-default.apps.ocp4-bm.redhat.arrowlabs.be

@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: thiersnicolas-dev
+  name: 'server-service'
+  annotations: {}
+  labels:
+    app: server-service
+    app.kubernetes.io/component: server-service
+    app.kubernetes.io/instance: server-service
+    app.kubernetes.io/name: server-service
+    app.kubernetes.io/part-of: server-service
+    app.openshift.io/runtime-namespace: thiersnicolas-dev
+spec:
+  selector:
+    matchLabels:
+      app: server-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: server-service
+        app.kubernetes.io/component: server-service
+        app.kubernetes.io/name: server-service
+        deployment: server-service
+    spec:
+      containers:
+        - name: container
+          image: >-
+            quay.io/appdev_playground/server-service:0.0.1-SNAPSHOT
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          env: []
+      imagePullSecrets: []
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+  paused: false
