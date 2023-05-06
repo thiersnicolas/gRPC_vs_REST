@@ -18,7 +18,16 @@ rootProject.name = "grpc-vs-rest"
 include(":platform:quarkus-platform")
 include(":platform:spring-platform")
 
-include(":application:configuration:application-quarkus")
+include(":application_client:configuration")
+
+include(":application_server:configuration")
+include(":application_server:core:domain")
+include(":application_server:infrastructure:dataproviders")
+include(":application_server:infrastructure:entrypoints:entrypoints-grpc")
+include(":application_server:infrastructure:entrypoints:entrypoints-rest")
+
+
+
 
 rootProject.children
         .flatMap { child -> if (child.children.isEmpty()) listOf(child) else child.children }
