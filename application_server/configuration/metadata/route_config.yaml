@@ -17,7 +17,7 @@ spec:
     name: server-service
     weight: 100
   port:
-    targetPort: 8083-tcp
+    targetPort: 8080-tcp
   wildcardPolicy: None
 status:
   ingress:
