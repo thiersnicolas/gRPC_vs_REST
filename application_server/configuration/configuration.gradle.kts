@@ -3,9 +3,10 @@ plugins {
 }
 
 dependencies {
-//    implementation(project(":application_server:infrastructure:entrypoints:entrypoints-rest"))
-//    implementation(project(":application_server:infrastructure:entrypoints:entrypoints-grpc"))
-
+    implementation(project(":application_server:core:domain"))
+    implementation(project(":application_server:infrastructure:dataproviders"))
+    implementation(project(":application_server:infrastructure:entrypoints:entrypoints-rest"))
+    implementation(project(":application_server:infrastructure:entrypoints:entrypoints-grpc"))
 
     implementation(platform(project(":platform:quarkus-platform")))
 
@@ -21,5 +22,4 @@ dependencies {
 
     testImplementation("io.quarkus:quarkus-junit5")
     testImplementation("io.rest-assured:rest-assured")
-
 }

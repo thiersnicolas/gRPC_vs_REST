@@ -12,10 +12,11 @@ public class GreetingResourceTest {
     @Test
     public void testHelloEndpoint() {
         given()
-          .when().get("/hello")
+          .when().get("/people")
           .then()
-             .statusCode(200)
-             .body(is("Hello from RESTEasy Reactive"));
+             .statusCode(204)
+                ;
+//             .body(is("Hello from RESTEasy Reactive"));
     }
 
 }

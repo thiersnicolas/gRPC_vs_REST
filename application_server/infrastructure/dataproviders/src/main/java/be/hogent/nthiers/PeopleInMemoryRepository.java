@@ -1,6 +1,7 @@
 package be.hogent.nthiers;
 
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.inject.Produces;
 
 import java.util.List;
 
@@ -8,7 +9,7 @@ import java.util.List;
 public class PeopleInMemoryRepository {
     List<Person> people;
 
-    List<Person> getPeople() {
+    public List<Person> getPeople() {
         return people;
     }
 }
