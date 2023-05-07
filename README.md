@@ -67,3 +67,27 @@ Create your first gRPC service
 Easily start your Reactive RESTful Web Services
 
 [Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
+
+### Docker
+(windows)
+add/uncomment application properties
+quarkus.package.type=native
+quarkus.native.container-build=true
+quarkus.container-image.build=true
+quarkus.container-image.image=quay.io/thiersnicolas/server:0.0.1-SNAPSHOT
+and 
+./gradlew clean build -x test
+
+or
+
+(linux/mac)
+./gradlew :application_server:configuration:build -x test -Dquarkus.package.type=native -Dquarkus.native.container-build=true -Dquarkus.container-image.build=true -Dquarkus.container-image.image=quay.io/hogent-nthiers/server:0.0.1-SNAPSHOT
+
+### Deployment Openshift
+download and use oc.exe: oc - OpenShift Command Line Interface (CLI)
+docker push quay.io/thiersnicolas/server:$version
+oc apply -f $PATH\application_server\configuration\metadata\deployment_config.yaml
+oc apply -f $PATH\application_server\configuration\metadata\route_config.yaml
+oc apply -f $PATH\application_server\configuration\metadata\service_config.yaml
+
+###
