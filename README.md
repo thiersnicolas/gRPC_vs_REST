@@ -76,7 +76,7 @@ quarkus.native.container-build=true
 quarkus.container-image.build=true
 quarkus.container-image.image=quay.io/thiersnicolas/server:0.0.1-SNAPSHOT
 and 
-./gradlew clean build -x test
+./gradlew :application_server:configuration:build -x test
 
 or
 

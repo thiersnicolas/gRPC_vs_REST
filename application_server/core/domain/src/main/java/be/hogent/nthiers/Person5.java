@@ -1,13 +1,16 @@
 package be.hogent.nthiers;
 
-public class Person {
+public class Person5 {
     String firstname;
     String lastname;
     int birthYear;
     int birtMonth;
     int birtDay;
 
-    public Person(String firstname, String lastname, int birthYear, int birtMonth, int birtDay) {
+    protected Person5() {
+    }
+
+    public Person5(String firstname, String lastname, int birthYear, int birtMonth, int birtDay) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.birthYear = birthYear;

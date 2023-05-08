@@ -27,7 +27,7 @@ spec:
       containers:
         - name: container
           image: >-
-            quay.io/thiersnicolas/server:0.0.1-SNAPSHOT
+            quay.io/thiersnicolas/server:0.0.2-SNAPSHOT
           ports:
             - containerPort: 8080
               protocol: TCP

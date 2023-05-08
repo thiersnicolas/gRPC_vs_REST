@@ -9,7 +9,7 @@ metadata:
     app.kubernetes.io/instance: server-service
     app.kubernetes.io/name: server-service
     app.kubernetes.io/part-of: server-service
-    app.openshift.io/runtime-version: 0.0.1-SNAPSHOT
+    app.openshift.io/runtime-version: 0.0.2-SNAPSHOT
 spec:
   host: server-service-thiersnicolas-dev.apps.ocp4-bm.redhat.arrowlabs.be
   to:
