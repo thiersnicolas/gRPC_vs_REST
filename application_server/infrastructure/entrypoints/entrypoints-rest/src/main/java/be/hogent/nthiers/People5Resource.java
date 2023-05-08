@@ -16,14 +16,6 @@ public class People5Resource {
     @Inject
     PeopleInMemoryRepository peopleInMemoryRepository;
 
-    @Path("/loaddata")
-    @POST
-    @Produces(MediaType.APPLICATION_JSON)
-    public Collection<Integer> loaddata() {
-        peopleInMemoryRepository.loadData();
-        return peopleInMemoryRepository.getPeople5SupportedAmounts();
-    }
-
     @Path("/cleardata")
     @POST
     @Produces(MediaType.APPLICATION_JSON)

@@ -15,44 +15,11 @@ public class People5ResourceTest {
     PeopleInMemoryRepository peopleInMemoryRepository;
 
     @Test
-    public void testPeople5Endpoint_InMemoryEmpty() {
-        containsInAnyOrder(Collections.emptyList())
-                .matches(
-                        given()
-                                .when().post("/people5/cleardata")
-                                .then()
-                                .statusCode(200)
-                                .and()
-                                .extract()
-                                .body().as(Integer[].class)
-                );
-
-        containsInAnyOrder(Collections.emptyList())
+    public void testPeople5Endpoint() {
+        containsInAnyOrder(peopleInMemoryRepository.getPeople5(2))
                 .matches(
                         given()
                                 .when().get("/people5/2")
-                                .then()
-                                .statusCode(200)
-                );
-    }
-
-    @Test
-    public void testPeople5Endpoint_InMemoryNotEmpty() {
-        containsInAnyOrder(DataGenerator.NUMBER_LIST)
-                .matches(
-                        given()
-                                .when().post("/people5/loaddata")
-                                .then()
-                                .statusCode(200)
-                                .and()
-                                .extract()
-                                .body().as(Integer[].class)
-                );
-
-        containsInAnyOrder(DataGenerator.NUMBER_LIST.get(0))
-                .matches(
-                        given()
-                                .when().get("/people5/" + DataGenerator.NUMBER_LIST.get(0))
                                 .then()
                                 .statusCode(200)
                                 .and()
@@ -62,41 +29,35 @@ public class People5ResourceTest {
     }
 
     @Test
-    public void testPeople5Endpoint_InMemoryNotEmpty_unsupportedAmount() {
-        containsInAnyOrder(DataGenerator.NUMBER_LIST)
+    public void testPeople5Endpoint_SameListOnEveryCall() {
+        var people = peopleInMemoryRepository.getPeople5(2);
+
+        containsInAnyOrder(people)
                 .matches(
                         given()
-                                .when().post("/people5/loaddata")
+                                .when().get("/people5/2")
                                 .then()
                                 .statusCode(200)
                                 .and()
                                 .extract()
-                                .body().as(Integer[].class)
+                                .body().as(Person5[].class)
                 );
 
-        containsInAnyOrder(Collections.emptyList())
+        containsInAnyOrder(people)
                 .matches(
                         given()
-                                .when().get("/people5/5")
+                                .when().get("/people5/2")
                                 .then()
                                 .statusCode(200)
+                                .and()
                                 .extract()
-                                .body()
+                                .body().as(Person5[].class)
                 );
     }
 
     @Test
     public void testPeople5SupportedAmountsEndpoint_InMemoryEmpty() {
-        containsInAnyOrder(Collections.emptyList())
-                .matches(
-                        given()
-                                .when().post("/people5/cleardata")
-                                .then()
-                                .statusCode(200)
-                                .and()
-                                .extract()
-                                .body().as(Integer[].class)
-                );
+        peopleInMemoryRepository.clearData();
 
         containsInAnyOrder(Collections.emptyList())
                 .matches(
@@ -111,18 +72,11 @@ public class People5ResourceTest {
 
     @Test
     public void testPeople5SupportedAmountsEndpoint_InMemoryNotEmpty() {
-        containsInAnyOrder(DataGenerator.NUMBER_LIST)
-                .matches(
-                        given()
-                                .when().post("/people5/loaddata")
-                                .then()
-                                .statusCode(200)
-                                .and()
-                                .extract()
-                                .body().as(Integer[].class)
-                );
+        peopleInMemoryRepository.clearData();
+        peopleInMemoryRepository.getPeople5(5);
+        peopleInMemoryRepository.getPeople5(10);
 
-        containsInAnyOrder(DataGenerator.NUMBER_LIST)
+        containsInAnyOrder(new Integer[]{5, 10})
                 .matches(
                         given()
                                 .when().get("/people5/supportedamounts")

@@ -7,8 +7,6 @@ option java_outer_classname = "People5GrpcProto";
 package hello;
 
 service People5Grpc {
-    rpc LoadData (LoadDataInput) returns (SupportedAmounts) {}
-
     rpc ClearData (ClearDataInput) returns (SupportedAmounts) {}
 
     rpc GetPeople (Amount) returns (stream GrpcPerson5) {}
@@ -16,7 +14,6 @@ service People5Grpc {
     rpc GetSupportedAmounts (SupportedAmountsInput) returns (SupportedAmounts) {}
 }
 
-message LoadDataInput {}
 message ClearDataInput {}
 message SupportedAmountsInput {}
 

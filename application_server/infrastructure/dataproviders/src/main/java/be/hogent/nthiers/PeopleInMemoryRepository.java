@@ -11,10 +11,6 @@ import java.util.Map;
 public class PeopleInMemoryRepository {
     private Map<Integer, List<Person5>> people5 = Collections.emptyMap();
 
-    public void loadData() {
-        people5 = DataGenerator.getPeopleWith5FieldsByAmountFromFiles();
-    }
-
     public void clearData() {
         people5 = Collections.emptyMap();
     }

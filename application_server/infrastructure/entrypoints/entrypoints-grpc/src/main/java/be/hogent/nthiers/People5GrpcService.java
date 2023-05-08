@@ -10,16 +10,6 @@ public class People5GrpcService implements People5Grpc {
     @Inject
     GrpcPeopleCache peopleCache;
 
-
-    @Override
-    public Uni<SupportedAmounts> loadData(LoadDataInput request) {
-        peopleCache.loadData();
-        return Uni.createFrom().item(() -> SupportedAmounts.newBuilder()
-                .addAllSupportedAmounts(peopleCache.getPeople5SupportedAmounts())
-                .build()
-        );
-    }
-
     @Override
     public Uni<SupportedAmounts> clearData(ClearDataInput request) {
         peopleCache.clearData();
