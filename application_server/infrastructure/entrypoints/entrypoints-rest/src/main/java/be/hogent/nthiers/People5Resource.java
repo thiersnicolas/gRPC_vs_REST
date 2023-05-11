@@ -34,7 +34,7 @@ public class People5Resource {
     @Path("/supportedamounts")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Collection<Integer> supportedamounts() {
+    public Collection<Integer> supportedAmounts() {
         return peopleInMemoryRepository.getPeople5SupportedAmounts();
     }
 }

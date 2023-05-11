@@ -83,6 +83,9 @@ or
 (linux/mac)
 ./gradlew :application_server:configuration:build -x test -Dquarkus.package.type=native -Dquarkus.native.container-build=true -Dquarkus.container-image.build=true -Dquarkus.container-image.image=quay.io/hogent-nthiers/server:0.0.1-SNAPSHOT
 
+you can run the application with
+docker run -p 8080:8080 quay.io/thiersnicolas/server:0.0.1-SNAPSHOT
+
 ## Deployment Openshift
 download and use oc.exe: oc - OpenShift Command Line Interface (CLI)
 docker push quay.io/thiersnicolas/server:$version

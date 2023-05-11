@@ -13,7 +13,6 @@ dependencies {
     implementation("io.quarkus:quarkus-kotlin")
     implementation("io.quarkus:quarkus-arc")
 
-    implementation("org.instancio:instancio-junit:2.9.0")
-    implementation("com.fasterxml.jackson.core:jackson-databind:2.15.0")
-
+    implementation("org.apache.commons:commons-math3:3.6.1")
+    implementation("org.apache.commons:commons-lang3:3.12.0")
 }

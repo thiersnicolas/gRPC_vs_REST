@@ -4,12 +4,14 @@ option java_multiple_files = true;
 option java_package = "be.hogent.nthiers";
 option java_outer_classname = "People5GrpcProto";
 
-package hello;
+package be.hogent.nthiers;
 
 service People5Grpc {
     rpc ClearData (ClearDataInput) returns (SupportedAmounts) {}
 
-    rpc GetPeople (Amount) returns (stream GrpcPerson5) {}
+    rpc GetPeopleStream (Amount) returns (stream GrpcPerson5) {}
+
+    rpc GetPeople (Amount) returns (GrpcPeople5) {}
 
     rpc GetSupportedAmounts (SupportedAmountsInput) returns (SupportedAmounts) {}
 }
@@ -19,6 +21,10 @@ message SupportedAmountsInput {}
 
 message SupportedAmounts {
     repeated int32 supportedAmounts = 1;
+}
+
+message GrpcPeople5 {
+    repeated GrpcPerson5 people = 1;
 }
 
 message GrpcPerson5 {

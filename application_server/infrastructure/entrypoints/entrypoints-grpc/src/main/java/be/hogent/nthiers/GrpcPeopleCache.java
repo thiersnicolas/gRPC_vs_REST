@@ -1,11 +1,10 @@
 package be.hogent.nthiers;
 
-import io.smallrye.mutiny.Multi;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
 import java.util.Collection;
-import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -14,20 +13,18 @@ public class GrpcPeopleCache {
     @Inject
     public PeopleInMemoryRepository peopleInMemoryRepository;
 
-    private Map<Integer, List<GrpcPerson5>> grpcPeople5 = Collections.emptyMap();
+    private Map<Integer, List<GrpcPerson5>> grpcPeople5 = new HashMap<>();
 
     public void clearData() {
-        grpcPeople5 = Collections.emptyMap();
+        grpcPeople5.clear();
     }
 
-    public Multi<GrpcPerson5> getPeople5(Integer amount) {
-        return Multi.createFrom()
-                .items(grpcPeople5.computeIfAbsent(amount,
-                                a -> peopleInMemoryRepository.getPeople5(a).stream()
-                                        .map(this::mapDomainToGrpc)
-                                        .toList()
-                        ).stream()
-                );
+    public List<GrpcPerson5> getPeople5(Integer amount) {
+        return grpcPeople5.computeIfAbsent(amount,
+                a -> peopleInMemoryRepository.getPeople5(a).stream()
+                        .map(this::mapDomainToGrpc)
+                        .toList()
+        );
     }
 
     public Collection<Integer> getPeople5SupportedAmounts() {

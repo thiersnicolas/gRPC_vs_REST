@@ -1,22 +1,26 @@
 package be.hogent.nthiers;
 
-import org.instancio.Instancio;
-import org.instancio.Model;
+import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.math3.random.RandomDataGenerator;
 
 import java.util.List;
-
-import static org.instancio.Select.field;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class DataGenerator {
-    public static List<Person5> getPeopleWith5Fields(int amount) {
-        Model<Person5> person5Model =
-                Instancio.of(Person5.class)
-                        .generate(field(Person5::getFirstname), gen -> gen.text().pattern("#C#c#c#c#c#c#c"))
-                        .generate(field(Person5::getLastname), gen -> gen.text().pattern("#C#c#c#c#c"))
-                        .generate(field(Person5::getBirthYear), gen -> gen.ints().min(1900).max(2013))
-                        .generate(field(Person5::getBirtMonth), gen -> gen.ints().min(1).max(12))
-                        .generate(field(Person5::getBirtDay), gen -> gen.ints().min(1).max(28))
-                        .toModel();
-        return Instancio.ofList(person5Model).size(amount).create();
+    public List<Person5> getPeopleWith5Fields(int amount) {
+        return IntStream.range(0, amount)
+                .mapToObj(i -> create())
+                .collect(Collectors.toList());
+    }
+
+    public Person5 create() {
+        return new Person5(
+                RandomStringUtils.random(7, true, false),
+                RandomStringUtils.random(5, true, false),
+                new RandomDataGenerator().nextInt(1900, 2022),
+                new RandomDataGenerator().nextInt(1, 12),
+                new RandomDataGenerator().nextInt(1, 28)
+        );
     }
 }
