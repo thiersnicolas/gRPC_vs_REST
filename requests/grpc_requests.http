@@ -1,0 +1,12 @@
+GRPC grpc-maarten-playground.apps.ocp4-bm.redhat.arrowlabs.be/be.hogent.nthiers.People5Grpc/GetPeopleStream
+
+{
+  "amount": 10000
+}
+
+###
+GRPC grpc-maarten-playground.apps.ocp4-bm.redhat.arrowlabs.be/be.hogent.nthiers.People5Grpc/GetPeople
+
+{
+"amount": 10000
+}
