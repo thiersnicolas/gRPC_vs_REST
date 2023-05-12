@@ -14,7 +14,7 @@ public class DataGenerator {
                 .collect(Collectors.toList());
     }
 
-    public Person5 create() {
+    private Person5 create() {
         return new Person5(
                 RandomStringUtils.random(7, true, false),
                 RandomStringUtils.random(5, true, false),
@@ -23,4 +23,5 @@ public class DataGenerator {
                 new RandomDataGenerator().nextInt(1, 28)
         );
     }
+
 }
