@@ -10,10 +10,11 @@ import java.util.Collection;
 import java.util.List;
 
 @Path("/people5")
-@RegisterRestClient
+@RegisterRestClient(configKey = "people5")
 public interface People5RestService {
 
     @POST
+    @Path("/cleardata")
     Collection<Integer> clearData();
 
     @GET
@@ -21,5 +22,6 @@ public interface People5RestService {
     List<Person5Dto> people5(@PathParam("amount") int amount);
 
     @GET
+    @Path("/supportedamounts")
     Collection<Integer> supportedAmounts();
 }

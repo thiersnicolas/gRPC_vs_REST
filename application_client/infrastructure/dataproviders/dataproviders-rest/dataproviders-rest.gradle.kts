@@ -13,10 +13,10 @@ dependencies {
     implementation("io.quarkus:quarkus-arc")
     implementation("io.quarkus:quarkus-kotlin")
 
-    //implementation("io.quarkus:quarkus-resteasy-reactive-jackson")
     implementation("io.quarkus:quarkus-rest-client-reactive-jackson")
     implementation("org.eclipse.microprofile.rest.client:microprofile-rest-client-api:3.0.1")
     implementation("io.quarkus:quarkus-arc")
+    implementation("io.quarkus:quarkus-micrometer-registry-prometheus")
 
     testImplementation("io.quarkus:quarkus-junit5")
     testImplementation("io.rest-assured:rest-assured")
