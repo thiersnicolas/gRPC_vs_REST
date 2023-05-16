@@ -1,5 +1,6 @@
 package be.hogent.nthiers;
 
+import be.hogent.thiersn.People5Service;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
@@ -10,10 +11,11 @@ import java.util.Collection;
 import java.util.List;
 
 @Path("/people5")
-@RegisterRestClient
-public interface People5RestService {
+@RegisterRestClient(configKey = "people5")
+public interface People5RestService extends People5Service<Person5Dto> {
 
     @POST
+    @Path("/cleardata")
     Collection<Integer> clearData();
 
     @GET
@@ -21,5 +23,6 @@ public interface People5RestService {
     List<Person5Dto> people5(@PathParam("amount") int amount);
 
     @GET
+    @Path("/supportedamounts")
     Collection<Integer> supportedAmounts();
 }
