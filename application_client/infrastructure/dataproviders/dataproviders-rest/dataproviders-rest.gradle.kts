@@ -7,6 +7,7 @@ dependencies {
 
     implementation(project(":application_server:core:domain"))
     implementation(project(":application_server:infrastructure:dataproviders"))
+    implementation(project(":application_client:infrastructure:dataproviders:dataproviders-core"))
 
     implementation("io.quarkus:quarkus-container-image-jib")
     implementation("io.quarkus:quarkus-config-yaml")

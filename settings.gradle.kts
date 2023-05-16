@@ -19,6 +19,7 @@ include(":platform:quarkus-platform")
 include(":platform:spring-platform")
 
 include(":application_client:configuration")
+include(":application_client:infrastructure:dataproviders:dataproviders-core")
 include(":application_client:infrastructure:dataproviders:dataproviders-grpc")
 include(":application_client:infrastructure:dataproviders:dataproviders-rest")
 
