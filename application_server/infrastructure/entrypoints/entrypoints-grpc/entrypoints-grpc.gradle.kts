@@ -17,6 +17,9 @@ dependencies {
 //    implementation("io.quarkus:quarkus-resteasy-reactive")
     implementation("io.quarkus:quarkus-arc")
     implementation("io.quarkus:quarkus-grpc")
+    implementation("io.quarkus:quarkus-micrometer-registry-prometheus")
+
+
     testImplementation("io.quarkus:quarkus-junit5")
     testImplementation("io.rest-assured:rest-assured")
 

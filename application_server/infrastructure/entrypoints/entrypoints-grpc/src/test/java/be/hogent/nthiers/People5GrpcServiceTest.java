@@ -17,6 +17,8 @@ public class People5GrpcServiceTest {
     GrpcPeopleCache peopleCache;
     @GrpcClient
     People5Grpc subject;
+    //@Inject
+
 
     /**@Test
     public void testPeople5Endpoint() {

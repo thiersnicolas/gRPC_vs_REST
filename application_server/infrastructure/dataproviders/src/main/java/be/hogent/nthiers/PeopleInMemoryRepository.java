@@ -9,7 +9,7 @@ import java.util.Map;
 
 @ApplicationScoped
 public class PeopleInMemoryRepository {
-    private final DataGenerator dataGenerator;
+    public final DataGenerator dataGenerator;
     private final Map<Integer, List<Person5>> people5;
 
     public PeopleInMemoryRepository() {

@@ -14,7 +14,7 @@ public class DataGenerator {
                 .collect(Collectors.toList());
     }
 
-    private Person5 create() {
+    public Person5 create() {
         return new Person5(
                 RandomStringUtils.random(7, true, false),
                 RandomStringUtils.random(5, true, false),
