@@ -196,8 +196,8 @@ public class People5GrpcServiceTest {
     @Test
     public void test_gRPC_stream_SingularCalls_3() throws IOException {
         var testHelper = new TestHelper<>(people5GrpcService, objectMapper, people5GrpcService::people5Stream);
-
-        var amounts2 = List.of(4194304);
-        testHelper.testPerformance_singularRequests("test_gRPC_SingularCalls_Multi_4", "gRPC_MULTI", amounts2);
+        var amount = 524288*4;
+        var amounts2 = List.of(amount);
+        testHelper.testPerformance_singularRequests("test_gRPC_SingularCalls_Multi_" + amount, "gRPC_MULTI", amounts2);
     }
 }

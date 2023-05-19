@@ -37,7 +37,9 @@ public class TestHelper<T> {
         logs.clear();
         logs.add(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + format(": starting %s for %s", testName, apiType));
 
+        System.out.println(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + " starting warmup");
         warmupServer(() -> amounts.forEach(this::callForAmountWithoutLog));
+        System.out.println(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + " warmup complete");
 
         logs.add(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + ": performance tests starting\n");
 
@@ -81,9 +83,13 @@ public class TestHelper<T> {
     }
 
     private void callForAmount(int amount) {
+        System.out.println(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + " calling for amount " + amount);
         logs.add(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + format(": calling for %d people5 ", amount));
+        LocalDateTime start = LocalDateTime.now();
         var result = call.apply(amount);
+        var duration = start.until(LocalDateTime.now(), ChronoUnit.MILLIS);
         logs.add(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + format(": response received %d people5 ", amount));
+        logs.add(String.format("this took %d millies\n", duration));
         try {
             logs.add(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + format(": response for %d people5, JSON to file size: %d bytes",
                     amount, getPeopleWith5FieldsSize(amount, result)));
@@ -91,6 +97,7 @@ public class TestHelper<T> {
             System.out.println(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + ": unable to get response size due to: " + e);
         }
         logs.add("\n");
+        System.out.println(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + " call finished for amount " + amount);
     }
 
     private void warmupServer(CallbackFunction warmupCall) {
@@ -100,15 +107,14 @@ public class TestHelper<T> {
         logs.add(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + ": warming up server");
 
         warmupCall.justDo();
-        warmupCall.justDo();
-        warmupCall.justDo();
-        warmupCall.justDo();
 
         logs.add(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + ": server warmed up");
     }
 
     private void callForAmountWithoutLog(int amount) {
+        System.out.println(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + " calling for amount " + amount);
         var result = call.apply(amount);
+        System.out.println(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + " call finished for amount " + amount);
     }
 
     private void printLogs(String testName) throws IOException {
@@ -120,7 +126,7 @@ public class TestHelper<T> {
     }
 
     private long getPeopleWith5FieldsSize(int amount, Object response) {
-        var path = Paths.get(format(FILE_WRITE_LOCATION + "/%s" + "people5" + ".json", amount));
+        var path = Paths.get(format(FILE_WRITE_LOCATION + "\\%s" + "people5" + ".json", amount));
         var file = path.toFile();
         try {
             objectMapper.writeValue(file, response);
