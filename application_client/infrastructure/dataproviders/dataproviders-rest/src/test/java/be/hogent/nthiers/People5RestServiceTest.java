@@ -32,8 +32,8 @@ public class People5RestServiceTest {
     }
 
     @Test
-    public void test_REST_gzip_SingularCalls() throws IOException {
-        var testHelper = new TestHelper<>(() -> people5RestService.clearData(), objectMapper, people5RestService::people5Gzip);
+    public void test_REST_compressed_SingularCalls() throws IOException {
+        var testHelper = new TestHelper<>(() -> people5RestService.clearData(), objectMapper, people5RestService::people5Compressed);
 
         //var amounts = List.of(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536, 131072, 262144, 524288);
 
@@ -41,7 +41,7 @@ public class People5RestServiceTest {
                 16384, 20480, 24576, 28672, 32768, 36864, 40960, 45056, 49152, 53248, 57344, 61440, 65536, 131072,
                 262144, 524288);
 
-        testHelper.testPerformance_singularRequests("test_REST_gzip_SingularCalls", amounts);
+        testHelper.testPerformance_singularRequests("test_REST_compressed_SingularCalls", amounts);
     }
     @Test
     public void test_REST_MultipleBatchedCalls_DifferentBatchSizes() throws IOException {
@@ -147,106 +147,106 @@ public class People5RestServiceTest {
     }
 
     @Test
-    public void test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes() throws IOException {
-        var testHelper = new TestHelper<>(() -> people5RestService.clearData(), objectMapper, people5RestService::people5Gzip);
+    public void test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes() throws IOException {
+        var testHelper = new TestHelper<>(() -> people5RestService.clearData(), objectMapper, people5RestService::people5Compressed);
 
         var amounts = List.of(4194304);
 
-        testHelper.testPerformance_multipleRequests("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize1024", amounts, 1024);
+        testHelper.testPerformance_multipleRequests("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize1024", amounts, 1024);
 
-        System.out.println("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize1024 done");
+        System.out.println("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize1024 done");
 
-        testHelper.testPerformance_multipleRequests("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize2048", amounts, 2048);
+        testHelper.testPerformance_multipleRequests("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize2048", amounts, 2048);
 
-        System.out.println("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize2048 done");
+        System.out.println("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize2048 done");
 
-        testHelper.testPerformance_multipleRequests("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize4096", amounts, 4096);
+        testHelper.testPerformance_multipleRequests("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize4096", amounts, 4096);
 
-        System.out.println("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize4096 done");
+        System.out.println("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize4096 done");
 
-        testHelper.testPerformance_multipleRequests("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize8192", amounts, 8192);
+        testHelper.testPerformance_multipleRequests("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize8192", amounts, 8192);
 
-        System.out.println("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize8192 done");
+        System.out.println("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize8192 done");
 
-        testHelper.testPerformance_multipleRequests("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize9216", amounts, 9216);
+        testHelper.testPerformance_multipleRequests("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize9216", amounts, 9216);
 
-        System.out.println("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize9216 done");
+        System.out.println("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize9216 done");
 
-        testHelper.testPerformance_multipleRequests("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize10240", amounts, 10240);
+        testHelper.testPerformance_multipleRequests("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize10240", amounts, 10240);
 
-        System.out.println("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize10240 done");
+        System.out.println("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize10240 done");
 
-        testHelper.testPerformance_multipleRequests("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize11264", amounts, 11264);
+        testHelper.testPerformance_multipleRequests("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize11264", amounts, 11264);
 
-        System.out.println("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize11264 done");
+        System.out.println("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize11264 done");
 
-        testHelper.testPerformance_multipleRequests("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize12288", amounts, 12288);
+        testHelper.testPerformance_multipleRequests("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize12288", amounts, 12288);
 
-        System.out.println("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize12288 done");
+        System.out.println("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize12288 done");
 
-        testHelper.testPerformance_multipleRequests("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize13312", amounts, 13312);
+        testHelper.testPerformance_multipleRequests("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize13312", amounts, 13312);
 
-        System.out.println("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize13312 done");
+        System.out.println("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize13312 done");
 
-        testHelper.testPerformance_multipleRequests("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize14336", amounts, 14336);
+        testHelper.testPerformance_multipleRequests("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize14336", amounts, 14336);
 
-        System.out.println("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize14336 done");
+        System.out.println("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize14336 done");
 
-        testHelper.testPerformance_multipleRequests("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize15360", amounts, 15360);
+        testHelper.testPerformance_multipleRequests("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize15360", amounts, 15360);
 
-        System.out.println("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize15360 done");
+        System.out.println("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize15360 done");
 
-        testHelper.testPerformance_multipleRequests("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize16384", amounts, 16384);
+        testHelper.testPerformance_multipleRequests("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize16384", amounts, 16384);
 
-        System.out.println("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize16384 done");
+        System.out.println("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize16384 done");
 
-        testHelper.testPerformance_multipleRequests("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize20480", amounts, 20480);
+        testHelper.testPerformance_multipleRequests("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize20480", amounts, 20480);
 
-        System.out.println("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize20480 done");
+        System.out.println("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize20480 done");
 
-        testHelper.testPerformance_multipleRequests("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize24576", amounts, 24576);
+        testHelper.testPerformance_multipleRequests("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize24576", amounts, 24576);
 
-        System.out.println("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize24576 done");
+        System.out.println("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize24576 done");
 
-        testHelper.testPerformance_multipleRequests("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize28672", amounts, 28672);
+        testHelper.testPerformance_multipleRequests("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize28672", amounts, 28672);
 
-        System.out.println("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize28672 done");
+        System.out.println("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize28672 done");
 
-        testHelper.testPerformance_multipleRequests("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize32768", amounts, 32768);
+        testHelper.testPerformance_multipleRequests("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize32768", amounts, 32768);
 
-        System.out.println("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize32768 done");
+        System.out.println("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize32768 done");
 
-        testHelper.testPerformance_multipleRequests("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize36864", amounts, 36864);
+        testHelper.testPerformance_multipleRequests("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize36864", amounts, 36864);
 
-        System.out.println("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize36864 done");
+        System.out.println("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize36864 done");
 
-        testHelper.testPerformance_multipleRequests("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize40960", amounts, 40960);
+        testHelper.testPerformance_multipleRequests("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize40960", amounts, 40960);
 
-        System.out.println("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize40960 done");
+        System.out.println("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize40960 done");
 
-        testHelper.testPerformance_multipleRequests("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize45056", amounts, 45056);
+        testHelper.testPerformance_multipleRequests("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize45056", amounts, 45056);
 
-        System.out.println("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize45056 done");
+        System.out.println("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize45056 done");
 
-        testHelper.testPerformance_multipleRequests("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize49152", amounts, 49152);
+        testHelper.testPerformance_multipleRequests("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize49152", amounts, 49152);
 
-        System.out.println("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize49152 done");
+        System.out.println("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize49152 done");
 
-        testHelper.testPerformance_multipleRequests("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize53248", amounts, 53248);
+        testHelper.testPerformance_multipleRequests("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize53248", amounts, 53248);
 
-        System.out.println("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize53248 done");
+        System.out.println("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize53248 done");
 
-        testHelper.testPerformance_multipleRequests("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize57344", amounts, 57344);
+        testHelper.testPerformance_multipleRequests("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize57344", amounts, 57344);
 
-        System.out.println("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize57344 done");
+        System.out.println("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize57344 done");
 
-        testHelper.testPerformance_multipleRequests("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize61440", amounts, 61440);
+        testHelper.testPerformance_multipleRequests("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize61440", amounts, 61440);
 
-        System.out.println("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize61440 done");
+        System.out.println("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize61440 done");
 
-        testHelper.testPerformance_multipleRequests("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize65536", amounts, 65536);
+        testHelper.testPerformance_multipleRequests("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize65536", amounts, 65536);
 
-        System.out.println("test_REST_gzip_MultipleBatchedCalls_DifferentBatchSizes_batchSize65536 done");
+        System.out.println("test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize65536 done");
     }
 
     @Test

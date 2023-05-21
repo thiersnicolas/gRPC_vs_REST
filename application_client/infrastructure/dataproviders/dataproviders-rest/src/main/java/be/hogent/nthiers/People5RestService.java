@@ -26,6 +26,6 @@ public interface People5RestService extends People5Service<Person5Dto> {
     @GET
     @Path("/{amount}/compressed")
     @Compressed
-    List<Person5Dto> people5Gzip(@PathParam("amount") int amount);
+    List<Person5Dto> people5Compressed(@PathParam("amount") int amount);
 
 }
