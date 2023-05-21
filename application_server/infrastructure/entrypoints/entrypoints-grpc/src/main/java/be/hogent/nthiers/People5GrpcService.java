@@ -20,14 +20,6 @@ public class People5GrpcService implements People5Grpc {
     }
 
     @Override
-    public Uni<SupportedAmounts> getSupportedAmounts(SupportedAmountsInput request) {
-        return Uni.createFrom().item(() -> SupportedAmounts.newBuilder()
-                .addAllSupportedAmounts(peopleCache.getPeople5SupportedAmounts())
-                .build()
-        );
-    }
-
-    @Override
     public Multi<GrpcPerson5> getPeopleStream(Amount request) {
         return Multi.createFrom().items(() -> peopleCache.getPeople5(request.getAmount()).stream());
     }

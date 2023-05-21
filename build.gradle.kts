@@ -7,6 +7,11 @@ plugins {
 allprojects.filter { !(it.name == "platform" || it.parent?.name == "platform") }.forEach {
     println("test ${it.name}")
 
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+
     it.apply(plugin = "idea")
     it.apply(plugin = "org.jetbrains.kotlin.jvm")
     it.apply(plugin = "java")

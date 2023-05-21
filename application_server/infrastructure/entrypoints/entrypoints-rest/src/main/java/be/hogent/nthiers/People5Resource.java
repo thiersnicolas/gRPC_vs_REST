@@ -1,12 +1,16 @@
 package be.hogent.nthiers;
 
+import io.quarkus.vertx.http.Compressed;
+import io.quarkus.vertx.http.Uncompressed;
 import jakarta.inject.Inject;
+import jakarta.ws.rs.Encoded;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
+import org.jboss.resteasy.annotations.GZIP;
 
 import java.util.Collection;
 import java.util.List;
@@ -27,14 +31,15 @@ public class People5Resource {
     @Path("/{amount}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
+    @Uncompressed
     public List<Person5> people5(@PathParam("amount") Integer amount) {
         return peopleInMemoryRepository.getPeople5(amount);
     }
 
-    @Path("/supportedamounts")
+    @Path("/{amount}/compressed")
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public Collection<Integer> supportedAmounts() {
-        return peopleInMemoryRepository.getPeople5SupportedAmounts();
+    @Compressed
+    public List<Person5> people5compressed(@PathParam("amount") Integer amount) {
+        return peopleInMemoryRepository.getPeople5(amount);
     }
 }

@@ -20,22 +20,22 @@ import static java.lang.String.format;
 
 public class TestHelper<T> {
     private static String FILE_WRITE_LOCATION = "src/test/resources";
-    People5Service<T> people5Service;
+    CallbackFunction clearCache;
     ObjectMapper objectMapper;
     Function<Integer, Object> call;
 
     List<String> logs;
 
-    public TestHelper(People5Service<T> people5Service, ObjectMapper objectMapper, Function<Integer, Object> call) {
-        this.people5Service = people5Service;
+    public TestHelper(CallbackFunction clearCache, ObjectMapper objectMapper, Function<Integer, Object> call) {
+        this.clearCache = clearCache;
         this.objectMapper = objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
         this.call = call;
         this.logs = new LinkedList<>();
     }
 
-    public void testPerformance_singularRequests(String testName, String apiType, List<Integer> amounts) throws IOException {
+    public void testPerformance_singularRequests(String testName, List<Integer> amounts) throws IOException {
         logs.clear();
-        logs.add(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + format(": starting %s for %s", testName, apiType));
+        logs.add(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + format(": starting %s", testName));
 
         System.out.println(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + " starting warmup");
         warmupServer(() -> amounts.forEach(this::callForAmountWithoutLog));
@@ -46,13 +46,13 @@ public class TestHelper<T> {
         amounts.forEach(this::callForAmount);
 
         logs.add(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + ": performance tests finished\n");
-        logs.add(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + format(": finished %s for %s", testName, apiType));
+        logs.add(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + format(": finished %s", testName));
         printLogs(testName);
     }
 
-    public void testPerformance_multipleRequests(String testName, String apiType, List<Integer> amounts, int batchSize) throws IOException {
+    public void testPerformance_multipleRequests(String testName, List<Integer> amounts, int batchSize) throws IOException {
         logs.clear();
-        logs.add(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + format(": starting %s for %s", testName, apiType));
+        logs.add(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + format(": starting %s", testName));
 
         warmupServer(() -> callForAmountWithoutLog(batchSize));
 
@@ -76,7 +76,7 @@ public class TestHelper<T> {
         });
 
         logs.add(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + ": performance tests finished");
-        logs.add(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + format(": finished %s for %s", testName, apiType));
+        logs.add(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + format(": finished %s", testName));
         printLogs(testName);
 
 
@@ -101,20 +101,19 @@ public class TestHelper<T> {
     }
 
     private void warmupServer(CallbackFunction warmupCall) {
-        people5Service.clearData();
+        clearCache.justDo();
         logs.add(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + ": data cleared");
 
         logs.add(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + ": warming up server");
 
+        warmupCall.justDo();
         warmupCall.justDo();
 
         logs.add(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + ": server warmed up");
     }
 
     private void callForAmountWithoutLog(int amount) {
-        System.out.println(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + " calling for amount " + amount);
         var result = call.apply(amount);
-        System.out.println(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + " call finished for amount " + amount);
     }
 
     private void printLogs(String testName) throws IOException {
@@ -126,7 +125,7 @@ public class TestHelper<T> {
     }
 
     private long getPeopleWith5FieldsSize(int amount, Object response) {
-        var path = Paths.get(format(FILE_WRITE_LOCATION + "\\%s" + "people5" + ".json", amount));
+        var path = Paths.get(format(FILE_WRITE_LOCATION + "/%s" + "people5" + ".json", amount));
         var file = path.toFile();
         try {
             objectMapper.writeValue(file, response);
@@ -139,7 +138,7 @@ public class TestHelper<T> {
     }
 
     @FunctionalInterface
-    private interface CallbackFunction {
+    public interface CallbackFunction {
         void justDo();
     }
 }

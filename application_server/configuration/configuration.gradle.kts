@@ -15,8 +15,8 @@ dependencies {
     implementation("io.quarkus:quarkus-arc")
     implementation("io.quarkus:quarkus-kotlin")
 
-    implementation("io.quarkus:quarkus-resteasy-reactive-jackson")
-    implementation("io.quarkus:quarkus-resteasy-reactive")
+    implementation("io.quarkus:quarkus-resteasy-jackson")
+
     implementation("io.quarkus:quarkus-arc")
     implementation("io.quarkus:quarkus-grpc")
 

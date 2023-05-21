@@ -25,12 +25,7 @@ public class People5GrpcService implements People5Service<GrpcPerson5> {
                 .await().indefinitely().getPeopleList();
     }
 
-    public List<GrpcPerson5> people5Stream(int amount) {
-        return people5Grpc.getPeopleStream(Amount.newBuilder().setAmount(amount).build()).collect()
-                .asList().await().indefinitely();
-    }
-
-    public Multi<GrpcPerson5> people5Multi(int amount) {
+    public Multi<GrpcPerson5> people5Stream(int amount) {
         return people5Grpc.getPeopleStream(Amount.newBuilder().setAmount(amount).build());
     }
 }
