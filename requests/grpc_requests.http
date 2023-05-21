@@ -1,18 +1,18 @@
-GRPC grpc-app2-maarten-playground.apps.ocp4-bm.redhat.arrowlabs.be:443/be.hogent.nthiers.People5Grpc/GetPeopleStream
+GRPC grpc-app2-maarten-grpc.apps.ocp4-bm.redhat.arrowlabs.be:443/be.hogent.nthiers.People5Grpc/GetPeopleStream
 
 {
   "amount": 1
 }
 
 ###
-GRPC grpc-app2-maarten-playground.apps.ocp4-bm.redhat.arrowlabs.be:443/People5Grpc/GetPeopleStream
+GRPC grpc-app2-maarten-grpc.apps.ocp4-bm.redhat.arrowlabs.be:443/People5Grpc/GetPeopleStream
 
 {
   "amount": 1
 }
 
 ###
-GRPC grpc-maarten-playground.apps.ocp4-bm.redhat.arrowlabs.be/be.hogent.nthiers.People5Grpc/GetPeople
+GRPC grpc-maarten-grpc.apps.ocp4-bm.redhat.arrowlabs.be/be.hogent.nthiers.People5Grpc/GetPeople
 
 {
 "amount": 10000
