@@ -38,6 +38,7 @@ public class People5Resource {
 
     @Path("/{amount}/compressed")
     @GET
+    @Produces(MediaType.APPLICATION_JSON)
     @Compressed
     public List<Person5> people5compressed(@PathParam("amount") Integer amount) {
         return peopleInMemoryRepository.getPeople5(amount);
