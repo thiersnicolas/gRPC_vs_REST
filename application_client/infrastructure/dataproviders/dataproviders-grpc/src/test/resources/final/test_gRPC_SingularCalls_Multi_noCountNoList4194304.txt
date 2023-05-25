@@ -1,0 +1,16 @@
+01:33:14.302838: starting test_gRPC_SingularCalls_Multi_noCountNoList4194304
+01:33:15.5669142: data cleared
+01:33:15.5689134: warming up server
+01:35:45.5011785: server warmed up
+01:35:45.5011785: performance tests starting
+
+01:35:45.5032025: calling for 4194304 people5 
+01:36:59.4674693: response received 4194304 people5 
+this took 73964 millies
+
+01:36:59.4674693: response for 4194304 people5, JSON to file size: 1 bytes
+
+
+01:36:59.5160697: performance tests finished
+
+01:36:59.5160697: finished test_gRPC_SingularCalls_Multi_noCountNoList4194304

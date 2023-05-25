@@ -1,0 +1,13 @@
+23:37:56.1761756: starting test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize14336
+23:37:56.2051756: data cleared
+23:37:56.2051756: warming up server
+23:37:57.1085219: server warmed up
+23:37:57.1085219: performance tests starting
+
+23:37:57.1095215: starting collecting 4194304 people with 293 calls of 14336 people per call 
+
+23:39:02.4859295: collected 4194304 people with 293 calls of 14336 people per call 
+this took 65376 millies
+
+23:39:02.4859295: performance tests finished
+23:39:02.4859295: finished test_REST_compressed_MultipleBatchedCalls_DifferentBatchSizes_batchSize14336

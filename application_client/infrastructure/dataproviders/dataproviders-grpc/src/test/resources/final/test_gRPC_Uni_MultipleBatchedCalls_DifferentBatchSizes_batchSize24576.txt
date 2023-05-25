@@ -1,0 +1,13 @@
+02:01:55.9169712: starting test_gRPC_Uni_MultipleBatchedCalls_DifferentBatchSizes_batchSize24576
+02:01:55.9479737: data cleared
+02:01:55.9479737: warming up server
+02:01:57.5680619: server warmed up
+02:01:57.5680619: performance tests starting
+
+02:01:57.5680619: starting collecting 4194304 people with 171 calls of 24576 people per call 
+
+02:03:06.2722801: collected 4194304 people with 171 calls of 24576 people per call 
+this took 68704 millies
+
+02:03:06.2722801: performance tests finished
+02:03:06.2722801: finished test_gRPC_Uni_MultipleBatchedCalls_DifferentBatchSizes_batchSize24576

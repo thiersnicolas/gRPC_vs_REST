@@ -1,0 +1,198 @@
+21:31:57.1790664: starting test_REST_compressed_SingularCalls_24-05-2023_1
+21:31:58.762553: data cleared
+21:31:58.762553: warming up server
+21:33:40.785635: server warmed up
+21:33:40.785635: performance tests starting
+
+21:33:40.7876376: calling for 1024 people5 
+21:33:40.9061591: response received 1024 people5 
+this took 117 millies
+
+21:33:40.9061591: response for 1024 people5, JSON to file size: 89012 bytes
+
+
+21:33:40.9531608: calling for 2048 people5 
+21:33:41.0456823: response received 2048 people5 
+this took 91 millies
+
+21:33:41.0456823: response for 2048 people5, JSON to file size: 178059 bytes
+
+
+21:33:41.1566857: calling for 4096 people5 
+21:33:41.2446796: response received 4096 people5 
+this took 87 millies
+
+21:33:41.2446796: response for 4096 people5, JSON to file size: 356029 bytes
+
+
+21:33:41.2646804: calling for 8192 people5 
+21:33:41.4087359: response received 8192 people5 
+this took 143 millies
+
+21:33:41.4087359: response for 8192 people5, JSON to file size: 712077 bytes
+
+
+21:33:41.442739: calling for 9216 people5 
+21:33:41.6127388: response received 9216 people5 
+this took 169 millies
+
+21:33:41.6127388: response for 9216 people5, JSON to file size: 801255 bytes
+
+
+21:33:41.6467379: calling for 10240 people5 
+21:33:41.8397969: response received 10240 people5 
+this took 193 millies
+
+21:33:41.8397969: response for 10240 people5, JSON to file size: 890149 bytes
+
+
+21:33:41.8817959: calling for 11264 people5 
+21:33:42.0703216: response received 11264 people5 
+this took 188 millies
+
+21:33:42.0703216: response for 11264 people5, JSON to file size: 979134 bytes
+
+
+21:33:42.0993198: calling for 12288 people5 
+21:33:42.3263662: response received 12288 people5 
+this took 227 millies
+
+21:33:42.3263662: response for 12288 people5, JSON to file size: 1068126 bytes
+
+
+21:33:42.3663678: calling for 13312 people5 
+21:33:42.6094223: response received 13312 people5 
+this took 243 millies
+
+21:33:42.6094223: response for 13312 people5, JSON to file size: 1157239 bytes
+
+
+21:33:42.6354966: calling for 14336 people5 
+21:33:42.9344973: response received 14336 people5 
+this took 299 millies
+
+21:33:42.9344973: response for 14336 people5, JSON to file size: 1246132 bytes
+
+
+21:33:42.9865243: calling for 15360 people5 
+21:33:43.2415708: response received 15360 people5 
+this took 255 millies
+
+21:33:43.2415708: response for 15360 people5, JSON to file size: 1335434 bytes
+
+
+21:33:43.2685754: calling for 16384 people5 
+21:33:43.5476106: response received 16384 people5 
+this took 279 millies
+
+21:33:43.5476106: response for 16384 people5, JSON to file size: 1424233 bytes
+
+
+21:33:43.5756106: calling for 20480 people5 
+21:33:43.8934617: response received 20480 people5 
+this took 317 millies
+
+21:33:43.8934617: response for 20480 people5, JSON to file size: 1780273 bytes
+
+
+21:33:43.9234722: calling for 24576 people5 
+21:33:44.347448: response received 24576 people5 
+this took 423 millies
+
+21:33:44.3484494: response for 24576 people5, JSON to file size: 2136224 bytes
+
+
+21:33:44.4259671: calling for 28672 people5 
+21:33:44.8835199: response received 28672 people5 
+this took 457 millies
+
+21:33:44.8835199: response for 28672 people5, JSON to file size: 2492571 bytes
+
+
+21:33:44.9355215: calling for 32768 people5 
+21:33:45.4455964: response received 32768 people5 
+this took 510 millies
+
+21:33:45.4455964: response for 32768 people5, JSON to file size: 2848469 bytes
+
+
+21:33:45.4985938: calling for 36864 people5 
+21:33:46.0561118: response received 36864 people5 
+this took 557 millies
+
+21:33:46.0561118: response for 36864 people5, JSON to file size: 3204424 bytes
+
+
+21:33:46.1111155: calling for 40960 people5 
+21:33:46.7216416: response received 40960 people5 
+this took 610 millies
+
+21:33:46.7216416: response for 40960 people5, JSON to file size: 3560760 bytes
+
+
+21:33:46.7836411: calling for 45056 people5 
+21:33:47.4798162: response received 45056 people5 
+this took 696 millies
+
+21:33:47.4798162: response for 45056 people5, JSON to file size: 3916495 bytes
+
+
+21:33:47.5788159: calling for 49152 people5 
+21:33:48.3407079: response received 49152 people5 
+this took 761 millies
+
+21:33:48.3407079: response for 49152 people5, JSON to file size: 4272625 bytes
+
+
+21:33:48.388235: calling for 53248 people5 
+21:33:49.5454675: response received 53248 people5 
+this took 1157 millies
+
+21:33:49.5464673: response for 53248 people5, JSON to file size: 4629053 bytes
+
+
+21:33:49.6174638: calling for 57344 people5 
+21:33:50.8732754: response received 57344 people5 
+this took 1255 millies
+
+21:33:50.8732754: response for 57344 people5, JSON to file size: 4984812 bytes
+
+
+21:33:50.9662805: calling for 61440 people5 
+21:33:52.205865: response received 61440 people5 
+this took 1239 millies
+
+21:33:52.205865: response for 61440 people5, JSON to file size: 5340758 bytes
+
+
+21:33:52.2848614: calling for 65536 people5 
+21:33:53.5892174: response received 65536 people5 
+this took 1304 millies
+
+21:33:53.5892174: response for 65536 people5, JSON to file size: 5696878 bytes
+
+
+21:33:53.6782181: calling for 131072 people5 
+21:33:56.1175406: response received 131072 people5 
+this took 2439 millies
+
+21:33:56.1175406: response for 131072 people5, JSON to file size: 11394150 bytes
+
+
+21:33:56.3225451: calling for 262144 people5 
+21:34:00.5250217: response received 262144 people5 
+this took 4202 millies
+
+21:34:00.5260221: response for 262144 people5, JSON to file size: 22787463 bytes
+
+
+21:34:00.90755: calling for 524288 people5 
+21:34:09.6879786: response received 524288 people5 
+this took 8780 millies
+
+21:34:09.6879786: response for 524288 people5, JSON to file size: 45575283 bytes
+
+
+21:34:10.5716593: performance tests finished
+
+21:34:10.5716593: finished test_REST_compressed_SingularCalls_24-05-2023_1
