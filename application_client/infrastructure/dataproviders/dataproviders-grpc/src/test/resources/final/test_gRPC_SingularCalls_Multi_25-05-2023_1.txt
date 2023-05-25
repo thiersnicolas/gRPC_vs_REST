@@ -1,0 +1,171 @@
+06:17:07.6849202: starting test_gRPC_SingularCalls_Multi_25-05-2023_1
+06:17:08.6681616: data cleared
+06:17:08.6681616: warming up server
+06:18:04.8871778: server warmed up
+06:18:04.8871778: performance tests starting
+
+06:18:04.8881741: calling for 1024 people5 
+06:18:04.9329752: response received 1024 people5 
+this took 43 millies
+
+
+
+06:18:05.0649782: calling for 2048 people5 
+06:18:05.1169755: response received 2048 people5 
+this took 51 millies
+
+
+
+06:18:05.1199896: calling for 4096 people5 
+06:18:05.2115388: response received 4096 people5 
+this took 90 millies
+
+
+
+06:18:05.2155123: calling for 8192 people5 
+06:18:05.3821454: response received 8192 people5 
+this took 166 millies
+
+
+
+06:18:05.3851016: calling for 9216 people5 
+06:18:05.5748047: response received 9216 people5 
+this took 189 millies
+
+
+
+06:18:05.5777756: calling for 10240 people5 
+06:18:05.7768281: response received 10240 people5 
+this took 199 millies
+
+
+
+06:18:05.7798279: calling for 11264 people5 
+06:18:05.9959078: response received 11264 people5 
+this took 216 millies
+
+
+
+06:18:05.9998815: calling for 12288 people5 
+06:18:06.235005: response received 12288 people5 
+this took 235 millies
+
+
+
+06:18:06.2420065: calling for 13312 people5 
+06:18:06.4884855: response received 13312 people5 
+this took 245 millies
+
+
+
+06:18:06.4984896: calling for 14336 people5 
+06:18:06.7682747: response received 14336 people5 
+this took 269 millies
+
+
+
+06:18:06.7712739: calling for 15360 people5 
+06:18:07.0586631: response received 15360 people5 
+this took 287 millies
+
+
+
+06:18:07.0616615: calling for 16384 people5 
+06:18:07.364857: response received 16384 people5 
+this took 303 millies
+
+
+
+06:18:07.368823: calling for 20480 people5 
+06:18:07.7382236: response received 20480 people5 
+this took 369 millies
+
+
+
+06:18:07.7412129: calling for 24576 people5 
+06:18:08.1849915: response received 24576 people5 
+this took 443 millies
+
+
+
+06:18:08.1879942: calling for 28672 people5 
+06:18:08.7042981: response received 28672 people5 
+this took 516 millies
+
+
+
+06:18:08.70627: calling for 32768 people5 
+06:18:09.2979036: response received 32768 people5 
+this took 591 millies
+
+
+
+06:18:09.3018999: calling for 36864 people5 
+06:18:09.9597715: response received 36864 people5 
+this took 657 millies
+
+
+
+06:18:09.9627331: calling for 40960 people5 
+06:18:10.6892955: response received 40960 people5 
+this took 726 millies
+
+
+
+06:18:10.6922962: calling for 45056 people5 
+06:18:11.4954494: response received 45056 people5 
+this took 802 millies
+
+
+
+06:18:11.4994492: calling for 49152 people5 
+06:18:12.3699833: response received 49152 people5 
+this took 870 millies
+
+
+
+06:18:12.3729804: calling for 53248 people5 
+06:18:13.3226223: response received 53248 people5 
+this took 949 millies
+
+
+
+06:18:13.3296146: calling for 57344 people5 
+06:18:14.347433: response received 57344 people5 
+this took 1017 millies
+
+
+
+06:18:14.3504083: calling for 61440 people5 
+06:18:15.4503527: response received 61440 people5 
+this took 1099 millies
+
+
+
+06:18:15.4543071: calling for 65536 people5 
+06:18:16.6079644: response received 65536 people5 
+this took 1153 millies
+
+
+
+06:18:16.6099645: calling for 131072 people5 
+06:18:18.9403364: response received 131072 people5 
+this took 2330 millies
+
+
+
+06:18:18.9433367: calling for 262144 people5 
+06:18:23.5881597: response received 262144 people5 
+this took 4644 millies
+
+
+
+06:18:23.5911549: calling for 524288 people5 
+06:18:32.7027425: response received 524288 people5 
+this took 9111 millies
+
+
+
+06:18:32.7047385: performance tests finished
+
+06:18:32.7057385: finished test_gRPC_SingularCalls_Multi_25-05-2023_1

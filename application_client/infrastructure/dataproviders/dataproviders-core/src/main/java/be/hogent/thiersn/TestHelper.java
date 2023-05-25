@@ -50,6 +50,19 @@ public class TestHelper<T> {
         printLogs(testName);
     }
 
+    public void testPerformance_singularRequests_withoutWarmup(String testName, List<Integer> amounts) throws IOException {
+        logs.clear();
+        logs.add(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + format(": starting %s", testName));
+
+        logs.add(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + ": performance tests starting\n");
+
+        amounts.forEach(this::callForAmount);
+
+        logs.add(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + ": performance tests finished\n");
+        logs.add(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + format(": finished %s", testName));
+        printLogs(testName);
+    }
+
     public void testPerformance_multipleRequests(String testName, List<Integer> amounts, int batchSize) throws IOException {
         logs.clear();
         logs.add(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME) + format(": starting %s", testName));
